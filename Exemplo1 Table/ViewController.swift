@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var animais = ["Urso", "Girafa", "Elefante", "Rinoceronte", "Leão"]
     // Não é obrigatorio informar a extenção da imagem
     var fotos = ["urso.png", "girafa.png", "ele.png", "rino.png", "leao.png"]
+    // é possivel ter um array de imagens
+    var fotos2 = [#imageLiteral(resourceName: "urso"), #imageLiteral(resourceName: "girafa"), #imageLiteral(resourceName: "ele"), #imageLiteral(resourceName: "rino"), #imageLiteral(resourceName: "leao")]
     var pais = ["Canadá", "Africa do Sul", "Zambia", "Índia", "Tanzania", "Sudão"]
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -55,6 +57,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         celula.textLabel?.text = animais[indexPath.row]
         celula.detailTextLabel?.text = pais[indexPath.row]
         celula.imageView?.image = UIImage(named: fotos[indexPath.row])
+        // Para um array de imagens nao precisa usar o UIImage(Named: para convertelo
+        celula.imageView?.image = fotos2[indexPath.row]
         
         return celula
     }
